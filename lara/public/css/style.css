@@ -1,0 +1,20 @@
+/**
+@override css
+*/
+.bg-light {
+    background: #40a218!important;
+}
+.margin-top-20{
+	margin-top:30px;
+}
+.feature-image{
+	max-height:200px;
+}
+.footer-design{
+    padding:20px;
+    height:60px;
+    margin-top:20px;
+    background-color:#27AE60;
+    margin-left:none;
+
+}

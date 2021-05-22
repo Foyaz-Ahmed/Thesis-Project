@@ -1,0 +1,112 @@
+body{
+	background-color:#CCFFF5;
+	height:100vh;
+	background-size:cover;
+	background-position:center;
+}
+.login_page
+{
+	position:static;
+	
+}
+.form{
+	position:relative;
+	background:#e0dede;
+	z-index:4;
+	max-width:450px;
+	margin:0 auto 100px;
+	padding:55px;
+	text-align:center;
+}
+.picture{
+	width:200px;
+	height:150px;
+}
+input[type ="submit"]{
+width:40%;
+margin-top:10px;
+height:40px;
+background:#2691d9;
+border-radius:25px;
+font-size:18px;
+color:#e9f4fb;
+font-weight:700;
+cursor:pointer;
+outline:none;
+border:none;
+}
+input[type="text"]{
+	width:200px;
+	height:30px;
+	margin-bottom:20px;
+}
+input[type="password"]{
+width:200px;
+height:30px;
+}
+.sign_up{
+	margin:30px 0;
+	text-align:center;
+	font-size:16px;
+	color:#666666;
+}
+.sign_up a{
+	text-decoration:none;
+}
+.sign_up a:hover{
+	
+	
+	text-decoration:underline;
+	color:red;
+}
+
+.profile{
+	background:#E8E8FF;
+}
+#buttonprofile{
+	margin-top:30px;
+	text-align:center;
+	width:300px;
+	padding:20px;
+	color:red;
+	font-size:30px;
+	font-weight:bold;
+	background:#FF66A3;
+	border-radius:20px;
+	margin-left:520px;
+}
+#buttonprofile a{
+	text-decoration:none;
+}
+#buttonprofile:hover{
+	background:yellow;
+}
+#buttonprofile2{
+	text-align:center;
+	width:100px;
+	padding:5px;
+	color:red;
+	font-size:20px;
+	font-weight:bold;
+	background:#FF66A3;
+	border-radius:20px;
+	
+}
+#buttonprofile2 a{
+	text-decoration:none;
+}
+#buttonprofile2:hover{
+	background:yellow;
+}
+#welcome{
+	font-size:20px;
+	font-weight:bold;
+	color:#ffff;
+	border:2px solid green;
+	text-align:center;
+	background:#0099FF;
+	height:30px;
+}
+#back{
+	margin-left:20px;
+}
