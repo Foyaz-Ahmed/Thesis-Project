@@ -18,14 +18,14 @@
         <th>Date<th>
         <th>Action<th>
     </tr>
-    @foreach($treatment as $value)
+    @foreach($treat as $value)
     <tr>
         <td>{{ $value['d_name']}}<td>
         <td>{{ $value['medicine_details'] }}<td>
         <td>{{ $value['disease_details'] }}<td>
         <td>{{ $value['remarks'] }}<td>
         <td><a  href="#">{{ $value['date'] }}</a><td>
-        <td><a href="{{ route('treatment.details', $value['date']) }}"><button>Download Details</button><a></td>
+        <td><a href="{{ route('treatment.pdf', $value['date']) }}">Download Details<a></td>
     </tr>
     @endforeach
  </table>

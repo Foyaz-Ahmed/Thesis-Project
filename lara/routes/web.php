@@ -61,6 +61,9 @@ Route::get('/ultrasonography/images/{date}','UltrasonographyController@image')->
 Route::get('/ct_scan/images/{date}','CTScanReportController@image')->name('click.image.ct_scan');
 Route::get('/ecg/images/{date}','ECGReportController@image')->name('click.image.ecg');
 
+//pdf generates
+
+Route::get('generate-pdf/{date}','PDFController@generatePDF')->name('treatment.pdf');
 
 });
 

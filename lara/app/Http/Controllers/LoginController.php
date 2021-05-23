@@ -35,8 +35,7 @@ class LoginController extends Controller
 
       }elseif(count($userlogin) > 0){
            
-        $req->session()->put('name', $req->username);
-         
+        $req->session()->put('name', $req->username);   
          return redirect()->route('dashboard.index');
         
        }else{

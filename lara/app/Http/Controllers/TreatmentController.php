@@ -13,9 +13,9 @@ class TreatmentController extends Controller
 
         $id = $requ->session()->get('name');
          
-        $treatment = Treatment::all()->where('id', $id);
+        $treatment = Treatment::all()->where('p_id', $id);
 
-        return view('backened.treatment.treatment')->with('treatment', $treatment);
+        return view('backened.treatment.treatment')->with('treat', $treatment);
         
         }
 
