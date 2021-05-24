@@ -40,6 +40,10 @@ Route::get('/profile','HomeController@profile')->name('profile.index');
 
 Route::get('/treatments','TreatmentController@index')->name('dashboard.treatments');
 Route::get('treatments/details','TreatmentController@details')->name('treatment.details');
+Route::get('treatments/verify','TreatmentController@verify')->name('treatment.verify');
+Route::post('treatments/verify','TreatmentController@verify_doctor');
+Route::get('treatments/create','TreatmentController@create')->name('treatment.create');
+Route::post('treatments/create','TreatmentController@store')->name('treatment.store');
 
 
 //Reports
@@ -64,6 +68,8 @@ Route::get('/ecg/images/{date}','ECGReportController@image')->name('click.image.
 //pdf generates
 
 Route::get('generate-pdf/{date}','PDFController@generatePDF')->name('treatment.pdf');
+
+
 
 });
 

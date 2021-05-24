@@ -29,6 +29,8 @@
     </tr>
     @endforeach
  </table>
+ <br><br><br>
+ <a href="{{route('treatment.verify')}}"><button>Add Treatment</button></a>
 
    
    
