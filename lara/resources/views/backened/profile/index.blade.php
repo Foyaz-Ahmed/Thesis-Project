@@ -34,6 +34,14 @@
             <td>{{ $value['password']  }}</td>
         </tr>
         <tr>
+            <td>National Id:</td>
+            <td>{{ $value['p_nid']  }}</td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>{{ $value['Gender']  }}</td>
+        </tr>
+        <tr>
             <td>Age:</td>
             <td>{{ $value['age']  }}</td>
         </tr>

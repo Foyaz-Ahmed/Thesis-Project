@@ -36,4 +36,6 @@ class HomeController extends Controller
         return view('backened.profile.index')->with('profiledata', $profiledata);
     
     }
+
+    
 }

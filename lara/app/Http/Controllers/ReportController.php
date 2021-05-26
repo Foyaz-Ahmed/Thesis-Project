@@ -10,4 +10,9 @@ class ReportController extends Controller
 
         return view('backened.reports.index');
     }
+
+    public function create_reports(){
+
+    	return view('backened.reports.create_reports');
+    }
 }

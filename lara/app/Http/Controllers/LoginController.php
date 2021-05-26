@@ -26,15 +26,26 @@ class LoginController extends Controller
                             ->where('id',$req->username)
                             ->get();
 
+      $d_login = DB::table('doctors')
+                            ->where('Password',$req->password)
+                            ->where('id',$req->username)
+                            ->get();
 
+      $r_login = DB::table('adminstrations')
+                            ->where('Password',$req->password)
+                            ->where('id',$req->username)
+                            ->get();
 
        if($req->username==""  || $req->password==""){
         
         $req->session()->flash('msg', 'Null Submission');
         return redirect('/login');
 
-      }elseif(count($userlogin) > 0){
-           
+      }elseif(count($userlogin) > 0 || count($d_login) > 0 || count($r_login) >  0){
+        
+        $req->session()->put('type', substr($req->username,-2)); 
+       
+
         $req->session()->put('name', $req->username);   
          return redirect()->route('dashboard.index');
         
