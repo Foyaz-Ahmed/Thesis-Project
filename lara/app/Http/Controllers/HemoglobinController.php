@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Hemoglobin;
 use App\Http\Requests\ReportRequest;
+use App\Http\Requests\UpdateRequest;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class HemoglobinController extends Controller
 {
@@ -26,12 +28,6 @@ class HemoglobinController extends Controller
     	return view('backened.reports.hg_all_reports')->with('all', $hg_all);
     }
 
-    public function edit(Request $requ,  $id){
-
-    	$hg = Hemoglobin::find($id);
-
-    	return view('backened.reports.hg_reports_update')->with('hg',$hg);
-    }
 
     public function hg_create(){
 
@@ -52,19 +48,36 @@ class HemoglobinController extends Controller
     	
     }
 
-    public function update(ReportRequest $requ){
+    public function edit(Request $requ,  $id, $date){
 
-    	$hg = new Hemoglobin();
+        $hg = Hemoglobin::find($id)
+                            ->where('date',$date)
+                            ->get();
 
-    	$hg->id = $requ->id;
-    	$hg->result_value = $requ->result_value;
-    	$hg->reference_range = $requ->reference_value;
-    	$hg->date = $requ->date;
+        return view('backened.reports.hg_reports_update')->with('hg',$hg);
 
-    	$hg->save();
+    
+
+        return view('backened.reports.hg_reports_update')->with('hg',$hg);
+    }
+
+    public function update(UpdateRequest $requ, $id, $date){
+
+        Hemoglobin::where('id', $id)->where('date',$date)->update(['result_value' => $requ->result_value]);
     	return redirect()->route('hemoglobin.reports.all');
     	
     }
+
+    public function delete($id, $date)
+    {
+        Hemoglobin::where('id', $id)->where('date',$date)->delete();
+       
+        return redirect()->route('hemoglobin.reports.all');
+        
+        
+    }
+
+
 
 
 }

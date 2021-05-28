@@ -23,8 +23,8 @@
             <td>{{$value['reference_range']}}</td>
             <td>{{$value['date']}}</td>
             <td>
-                <a href="{{ route('hemoglobin.reports.edit', $value['id']) }}"><button>Update</button></a>
-                <a href="#"><button>Delete</button></a>
+                <a href="{{ route('hemoglobin.reports.edit',[$value['id'], $value['date']]) }}"><button>Update</button></a>
+                <a href="{{ route('hemoglobin.reports.delete', [$value['id'],$value['date'] ])}}"><button>Delete</button></a>
             </td>
         </tr>
         @endforeach

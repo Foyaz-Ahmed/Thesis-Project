@@ -71,16 +71,23 @@ Route::get('/ecg/images/{date}','ECGReportController@image')->name('click.image.
 
 //Add Blood Group reports
 
+
+//Hg All Routes
+
 Route::get('/reports/create','ReportController@create_reports')->name('reports.create');
 
 Route::get('/hemoglobin/reports/create','HemoglobinController@hg_create')->name('hemoglobin.reports.create');
 Route::post('/hemoglobin/reports/create','HemoglobinController@hg_store')->name('hemoglobin.reports.create');
 Route::get('/hemoglobin/reports/all','HemoglobinController@all')->name('hemoglobin.reports.all');
-Route::get('/hemoglobin/reports/edit/{id}','HemoglobinController@edit')->name('hemoglobin.reports.edit');
-Route::post('/hemoglobin/reports/edit/{id}','HemoglobinController@update')->name('hemoglobin.reports.edit');
+Route::get('/hemoglobin/reports/edit/{id}/{date}','HemoglobinController@edit')->name('hemoglobin.reports.edit');
+Route::post('/hemoglobin/reports/edit/{id}/{date}','HemoglobinController@update')->name('hemoglobin.reports.edit');
+Route::get('/hemoglobin/reports/delete/{id}/{date}','HemoglobinController@delete')->name('hemoglobin.reports.delete');
+
+//Creatinine routes
 
 
 Route::get('/creatinine/reports/create','CreatinineController@creatinine_create')->name('creatinine.reports.create');
+
 Route::get('/cholesterol/reports/create','CholesterolController@cholesterol_create')->name('cholesterol.reports.create');
 Route::get('/platelets/reports/create','PlateletsController@platelets_create')->name('platelets.reports.create');
 Route::get('/bloodsugar/reports/create','BloodSugarController@blood_sugar_create')->name('bloodsugar.reports.create');

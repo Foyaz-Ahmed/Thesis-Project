@@ -16,4 +16,6 @@ class CreatinineController extends Controller
         return view('backened.reports.creatinine')->with('ct',$ct);
 
     }
+
+    
 }

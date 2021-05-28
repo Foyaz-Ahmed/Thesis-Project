@@ -39,12 +39,32 @@ class TreatmentController extends Controller
         public function verify_doctor(Request $requ){
 
         	$id = $requ->id;
-			$d_user = Doctor::find($id)->all();
+            $d_user = "";
+            
 
-			if(count($d_user) > 0)
-			{
-				return view('backened.treatment.treatment_create')->with('d_user',$d_user);
-			}  
+            $d_user = Doctor::get()->where('id',$id);
+
+            if($id!=null){
+			// $d_user = Doctor::find($id)->all();
+
+            if(count($d_user) > 0)
+            {
+                return view('backened.treatment.treatment_create')->with('d_user',$d_user);
+            }
+            else{
+                echo "Wrong Id";
+            }
+
+            }
+
+            elseif($id==""){
+
+                echo "Null Submission";
+            }			
+
+            else{
+                echo "wrong User";
+            }  
       
         }
 
