@@ -7,6 +7,8 @@ use App\Patient;
 
 class HomeController extends Controller
 {
+    
+    
     public function index(Request $req){
 
         if($req->session()->has('name')){
@@ -18,6 +20,11 @@ class HomeController extends Controller
             }  
 
 
+    }
+
+    public function front_home(){
+
+        return view('frontend.pages.index');
     }
     
     public function reports()

@@ -15,8 +15,12 @@ use App\Http\Controllers\NotificationController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.pages.index');
 });
+
+//home
+
+Route::get('/home/main','HomeController@front_home')->name('frontend.pages.index');
 
 //login & logout
 
