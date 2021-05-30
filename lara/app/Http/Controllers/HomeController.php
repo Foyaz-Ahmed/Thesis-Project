@@ -37,8 +37,8 @@ class HomeController extends Controller
         return view('backened.home');
     }
     public function profile(){
-
-        $profiledata = Patient::all();
+        $id = session()->get('name');
+        $profiledata = Patient::find($id);
          
         return view('backened.profile.index')->with('profiledata', $profiledata);
     

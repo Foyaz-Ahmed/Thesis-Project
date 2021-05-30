@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>E-Health Sytem</title>
+	<title>@yield('title')</title>
 	@include('frontend.partials.style')
 </head>
 <body>

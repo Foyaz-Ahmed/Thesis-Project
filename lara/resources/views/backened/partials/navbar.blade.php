@@ -65,12 +65,13 @@
 
 
       </ul>
-  <!-- <div class="container-fluid">
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div> -->
+      <div class="container-fluid">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search patient" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+
     <ul class="navbar-nav">
      <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('logout') }}">Logout</a>
@@ -79,3 +80,36 @@
   </ul>
   </div>
 </nav>
+
+
+
+ <!-- <div class="topnav">
+  <a class="active" style="color:#EAEDED;" class="navbar-brand"  href="#">E-health System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+  <a class="" href="{{route('frontend.pages.index')}}">Home</a>
+  
+  @if(session('type') == "01" )
+  <a href="#news">Profile</a>
+  <a href="{{ route('dashboard.treatments') }}">Treatments</a>
+  
+
+
+
+
+
+
+  @endif
+
+
+
+  
+
+
+
+
+  <div class="topnav-right">
+    <a href="{{ route('logout') }}">Logout</a>
+  </div>
+</div> -->

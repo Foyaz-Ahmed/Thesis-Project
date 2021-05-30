@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treatment Details</title>
-</head>
+@extends('backened.layouts.main')
 
-<body>
-<h1>Previous Treatment Record</h1>
- <table>
+@section('title')
+    Tratments Details
+@endsection
+
+@section('content')
+
+ <div class="table-responsive">
+  <table class="table">
     <tr>
         <th>Dr. Name<th>
         <th>Medicine Details<th>
@@ -26,7 +24,7 @@
         <td>{{ $value['remarks'] }}<td>
         <td><a  href="#">{{ $value['date'] }}</a><td>
         @if(session('type')== 01 )
-        <td><a href="{{ route('treatment.pdf', $value['date']) }}">Download Details<a></td>
+        <td><a class="btn btn-primary" href="{{ route('treatment.pdf', $value['date']) }}">Download<a></td>
         @endif
         @if(session('type') == 10 )
         <td><a href="{{ route('treatment.doctor.pdf', $value['date']) }}">Download Details<a></td>
@@ -34,14 +32,14 @@
     </tr>
     @endforeach
  </table>
+</div>
  <br><br><br>
   @if(session('type')==10)
     <a href="{{route('treatment.create')}}"><button>Add Treatment</button></a>
  
    @endif
-</body>
-</html>
 
+@endsection
  
 
 

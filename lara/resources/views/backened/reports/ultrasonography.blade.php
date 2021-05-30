@@ -1,21 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('backened.layouts.main')
+
+@section('title')
+    Ultra-Test
+@endsection
+
+@section('content')
+
+
+
 @foreach($ultra as $value)
-    <h1>Ultrasonography Reports</h1>
-    <table>
-        <tr>
-            <td><img src="{{ asset('images/ultrasonography') }}/{{ $value['image'] }}" alt="" width="50px"
+    <div class="margin_table">
+    <table class="table table-striped">
+        <thead class="">
+            <th scope="row">Picture</th>
+            <th scope="col">Test Date</th>
+            <th scope="col">Action</th>
+        </thead>
+        <tbody>
+        <tr><td><img src="{{ asset('images/ultrasonography') }}/{{ $value['image'] }}" alt="" width="50px"
             height="50px"></td>
             <td><a href="{{route('click.image.ultra', $value['date'])}}"> {{$value['date'] }}</a></td>
+            
+            <td><a class="btn btn-primary" href="{{route('click.image.ultra', $value['date'])}}">Click Here</a></td>
         </tr>
-    </table>  
+        </tbody>
+    </table>
+    </div>  
 </body>
 @endforeach
-</html>
+@endsection

@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
 	<div class="container-own">
  	<nav class="navbar navbar-expand-lg navbar-light bg-light">
  		<div class="container">
@@ -24,9 +24,8 @@
 	      <li class="nav-item">
 	        <a class="nav-link" href="#">Registration</a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#">Disabled</a>
-	      </li>
+	  		
+	 
 	      <div class="dropdown">
 			  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
 			    Others link
@@ -38,8 +37,27 @@
 			    <li><a class="dropdown-item" href="#">Something else here</a></li>
 			  </ul>
 			</div>
+			<li class="nav-item">
+	        <a class="nav-link" href="#">Registration</a>
+	      </li>
 
 	    </ul>
 	  </div>
 	  </div>
-</nav>
+</nav> -->
+
+
+
+<div class="topnav">
+  <a class="active" style="color:#EAEDED;" class="navbar-brand"  href="#">E-health System</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+  	  </button>
+  <a class="" href="{{route('frontend.pages.index')}}">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <div class="topnav-right">
+    <a href="{{route('login')}}">Login</a>
+    <a href="#about">Registration</a>
+  </div>
+</div>
