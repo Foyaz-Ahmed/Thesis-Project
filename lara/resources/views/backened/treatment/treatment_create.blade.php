@@ -5,7 +5,6 @@
 </head>
 <body>
 	<h1>Create Treatments</h1>
-	@foreach($d_user as $value)
 	  
 
   <form method ="post" action="{{route('treatment.store')}}">
@@ -13,11 +12,11 @@
 	<table>
 		<tr>
 			<td>Doctors Name:</td>
-			<td><input type="txt" name="d_name" value="{{$value['d_name']}}"></td>
+			<td><input type="txt" name="d_name" value="{{$d_user['d_name']}}"></td>
 		</tr>
 		<tr>
 			<td>Patient Id:</td>
-			<td><input type="txt" name="p_id" value="{{session('name')}}"></td>
+			<td><input type="txt" name="p_id" value="{{session('p_id')}}"></td>
 		</tr>
 		<tr>
 			<td>Disease Details:</td>
@@ -41,6 +40,6 @@
 		</tr>
 	</table>
 <form>
-	@endforeach
+
 </body>
 </html>

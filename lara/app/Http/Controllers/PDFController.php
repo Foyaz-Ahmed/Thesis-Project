@@ -23,12 +23,28 @@ class PDFController extends Controller
                              ->select('d_name','disease_details', 'medicine_details', 'remarks','date','p_name','age')
                             ->join('patients', 'patients.id', '=', 'treatments.p_id')
                             ->get();
-                            
-                       
-        //  $treatment = Treatment::all()->where('p_id', $id)
-        //                               ->where('date',$date);
+            
         view()->share('treat',$treatment);
         $pdf = PDF::loadView('backened/treatment/treatmentpdf', $treatment);
+
+        return $pdf->download('prescription.pdf');
+    }
+
+    public function generatePDF_dcotor(Request $requ,  $date)
+    {   
+
+        $p_id = session()->get('p_id');
+
+        $treatment = Treatment::where('id', $p_id)
+                             ->where('date',$date)
+                             ->select('d_name','disease_details', 'medicine_details', 'remarks','date','p_name','age')
+                            ->join('patients', 'patients.id', '=', 'treatments.p_id')
+                            ->get();
+
+       
+            
+        view()->share('treat',$treatment);
+        $pdf = PDF::loadView('backened/treatment/treatmentTestpdf', $treatment);
 
         return $pdf->download('prescription.pdf');
     }

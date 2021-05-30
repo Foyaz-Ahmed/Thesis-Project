@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+ @include('backened.partials.message')
 <h1>Welcome {{ session('name') }}!</h1>
     
 @endsection

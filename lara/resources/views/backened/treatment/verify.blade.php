@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Verify Doctor</title>
+	<title>Verify Patient</title>
 </head>
 <body>
 	<form method = "post" action="">
 		@csrf
-	    Give Doctor's Id:<input type="text" name="id">
+	    Search Patient Id:<input type="text" name="id" value="">
 	    <input type="submit" name="submit" value="verify">
 	</form>
 </body>

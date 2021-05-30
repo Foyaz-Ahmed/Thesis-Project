@@ -46,9 +46,10 @@ Route::get('/profile/recorder','AdminstrationController@recorder_profile')->name
 Route::get('/treatments','TreatmentController@index')->name('dashboard.treatments');
 Route::get('treatments/details','TreatmentController@details')->name('treatment.details');
 Route::get('treatments/verify','TreatmentController@verify')->name('treatment.verify');
-Route::post('treatments/verify','TreatmentController@verify_doctor');
+Route::post('treatments/verify','TreatmentController@verify_patient');
 Route::get('treatments/create','TreatmentController@create')->name('treatment.create');
 Route::post('treatments/create','TreatmentController@store')->name('treatment.store');
+
 
 
 //Patients Reports
@@ -109,8 +110,7 @@ Route::get('/ecg/reports/create','ECGReportController@ecg_create')->name('ecg.re
 //pdf generates
 
 Route::get('generate-pdf/{date}','PDFController@generatePDF')->name('treatment.pdf');
-
-
+Route::get('generate-pdf/doctor/{date}','PDFController@generatePDF_dcotor')->name('treatment.doctor.pdf');
 
 });
 

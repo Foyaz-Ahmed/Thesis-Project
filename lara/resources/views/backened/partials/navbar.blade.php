@@ -1,9 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-primary"">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -37,13 +33,44 @@
       </ul>
     </li>
         @endif
+        @if(session('type') == "10")
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('treatment.verify') }}">Treatment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Reports</a>
+        </li>
+        <div class="container-fluid">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search patient" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+        @endif
+        @if(session('type') == "20" )
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('profile.recorder.index') }}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('hemoglobin.reports.create') }}">Add Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('hemoglobin.reports.all') }}">Reports</a>
+        </li>
+        @endif
+
+
       </ul>
-      <div class="container-fluid">
+  <!-- <div class="container-fluid">
     <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
-  </div>
+  </div> -->
     <ul class="navbar-nav">
      <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('logout') }}">Logout</a>

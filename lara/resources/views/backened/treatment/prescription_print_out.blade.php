@@ -18,19 +18,14 @@
         <th>Date<th>
         <th>Action<th>
     </tr>
-    @foreach($treat as $value)
+    @foreach($treatment as $value)
     <tr>
         <td>{{ $value['d_name']}}<td>
         <td>{{ $value['medicine_details'] }}<td>
         <td>{{ $value['disease_details'] }}<td>
         <td>{{ $value['remarks'] }}<td>
         <td><a  href="#">{{ $value['date'] }}</a><td>
-        @if(session('type')== 01 )
         <td><a href="{{ route('treatment.pdf', $value['date']) }}">Download Details<a></td>
-        @endif
-        @if(session('type') == 10 )
-        <td><a href="{{ route('treatment.doctor.pdf', $value['date']) }}">Download Details<a></td>
-        @endif
     </tr>
     @endforeach
  </table>

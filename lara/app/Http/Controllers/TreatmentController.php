@@ -7,6 +7,7 @@ use App\Patient;
 use App\Treatment;
 use App\Doctor;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class TreatmentController extends Controller
 {
@@ -20,36 +21,31 @@ class TreatmentController extends Controller
         
         }
 
-        public function details(){
-
-                return view('backened.treatment.details');
-            
-            }
-
-        public function create(){
-
-        	return view('backened.treatment.treatment_create');
-        }
 
         public function verify(){
+
 
         	return view('backened.treatment.verify');
         }
 
-        public function verify_doctor(Request $requ){
+        public function verify_patient(Request $requ){
 
         	$id = $requ->id;
-            $d_user = "";
-            
+            $treatment = Treatment::all()->where('p_id', $id);
 
-            $d_user = Doctor::get()->where('id',$id);
+            $p_user = "";
 
             if($id!=null){
 			// $d_user = Doctor::find($id)->all();
 
-            if(count($d_user) > 0)
+            if(count($treatment) > 0)
             {
-                return view('backened.treatment.treatment_create')->with('d_user',$d_user);
+                 $requ->session()->put('p_id', $requ->id);
+
+                 $id = session()->get('p_id');
+
+                return view('backened.treatment.treatment')->with('treat', $treatment);
+                // return view('backened.treatment.treatment_create')->with('p_user',$p_user);
             }
             else{
                 echo "Wrong Id";
@@ -68,8 +64,22 @@ class TreatmentController extends Controller
       
         }
 
+        public function create(Request $requ){
+
+
+            $id = session()->get('name');
+
+            $d_user = Doctor::find($id);
+
+            $requ->session()->put('d_name', $d_user['name']); 
+
+            return view('backened.treatment.treatment_create')->with('d_user', $d_user);
+        }
 
         public function store(Request $requ){
+
+        $id = session()->get('p_id');
+        
 
         $treatment = new Treatment();
 
@@ -78,11 +88,16 @@ class TreatmentController extends Controller
         $treatment->medicine_details = $requ->m_details;
         $treatment->disease_details = $requ->d_details;
         $treatment->remarks = $requ->remarks;
-        $treatment->date = $requ->date;    
-        
+        $treatment->date = $requ->date;
         $treatment->save();
+        // view()->share('treat',$treatment);
+        // $pdf = PDF::loadView('backened/treatment/treatmentTestpdf', $treatment);
+        // $pdf->download('prescription.pdf');
+        return redirect()->route('treatment.verify');    
+        
 
-        return redirect()->route('dashboard.treatments');
+ 
+       
 
         }
 

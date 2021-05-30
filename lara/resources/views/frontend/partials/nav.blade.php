@@ -29,7 +29,7 @@
 	      </li>
 	      <div class="dropdown">
 			  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-			    Dropdown link
+			    Others link
 			  </a>
 
 			  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -38,6 +38,7 @@
 			    <li><a class="dropdown-item" href="#">Something else here</a></li>
 			  </ul>
 			</div>
+
 	    </ul>
 	  </div>
 	  </div>
