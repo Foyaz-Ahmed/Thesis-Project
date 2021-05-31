@@ -27,7 +27,7 @@
         <td><a class="btn btn-primary" href="{{ route('treatment.pdf', $value['date']) }}">Download<a></td>
         @endif
         @if(session('type') == 10 )
-        <td><a href="{{ route('treatment.doctor.pdf', $value['date']) }}">Download Details<a></td>
+        <td><a class="btn btn-primary" href="{{ route('treatment.doctor.pdf', $value['date']) }}">Download<a></td>
         @endif
     </tr>
     @endforeach
@@ -35,7 +35,7 @@
 </div>
  <br><br><br>
   @if(session('type')==10)
-    <a href="{{route('treatment.create')}}"><button>Add Treatment</button></a>
+    <a class="btn btn-success margin_addbutton" href="{{route('treatment.create')}}">Add Treatment</a>
  
    @endif
 

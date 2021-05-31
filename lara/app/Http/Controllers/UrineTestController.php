@@ -16,4 +16,15 @@ class UrineTestController extends Controller
         return view('backened.reports.urine')->with('urine',$urine);
 
     }
+
+    public function show(Request $requ){
+
+        $id = $requ->session()->get('p_id');
+
+        $urine = UrineTest::all()->where('id',$id);
+
+        return view('backened.reports.urine')->with('urine',$urine);
+
+    }
+
 }

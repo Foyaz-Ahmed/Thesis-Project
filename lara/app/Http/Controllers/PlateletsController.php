@@ -16,4 +16,14 @@ class PlateletsController extends Controller
         return view('backened.reports.platelets')->with('pt',$pt);
 
     }
+
+    public function show(Request $requ){
+
+        $id = $requ->session()->get('p_id');
+
+        $pt = Platelets::all()->where('id',$id);
+
+        return view('backened.reports.platelets')->with('pt',$pt);
+
+    }
 }

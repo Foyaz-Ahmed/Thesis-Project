@@ -66,3 +66,48 @@
 }
 
 
+.margin_logout{
+
+  margin-left:650px;
+  float:right;
+  color:red;
+  background:#A9142A ;
+  border-radius:10px;
+}
+
+.margin_logout ul li a:hover{
+
+  background:red;
+
+}
+
+.search_input{
+
+  margin: 0 auto;
+}
+
+
+.margin_body{
+  background:;
+  margin-top:200px;
+  margin-left:620px;
+}
+
+.margin_body1{
+  background:;
+  margin-top:200px;
+  margin-left:480px;
+}
+
+.margin_addbutton{
+
+  margin-left:550px;
+}
+
+.size_button{
+  width:115px;
+  height:40px;
+}
+.success_message{
+  margin-right:200px;
+}

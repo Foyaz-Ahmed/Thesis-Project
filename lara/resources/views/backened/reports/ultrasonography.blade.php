@@ -19,9 +19,14 @@
         <tbody>
         <tr><td><img src="{{ asset('images/ultrasonography') }}/{{ $value['image'] }}" alt="" width="50px"
             height="50px"></td>
-            <td><a href="{{route('click.image.ultra', $value['date'])}}"> {{$value['date'] }}</a></td>
             
+            <td><a href="{{route('click.image.ultra', $value['date'])}}"> {{$value['date'] }}</a></td>
+            @if(session('p_id') == "" )
             <td><a class="btn btn-primary" href="{{route('click.image.ultra', $value['date'])}}">Click Here</a></td>
+            @endif
+            @if(session('p_id') != "" )
+            <td><a class="btn btn-primary" href="{{route('click.image.ultra.show', $value['date'])}}">Click Here</a></td>
+            @endif
         </tr>
         </tbody>
     </table>

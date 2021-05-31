@@ -17,5 +17,15 @@ class CreatinineController extends Controller
 
     }
 
+    public function show(Request $requ){
+
+        $id = $requ->session()->get('p_id');
+
+        $urine = Creatinine::all()->where('id',$id);
+
+        return view('backened.reports.urine')->with('urine',$urine);
+
+    }
+
     
 }

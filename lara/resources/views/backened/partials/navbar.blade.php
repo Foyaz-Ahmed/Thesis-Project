@@ -30,23 +30,31 @@
         <li><a  class ="dropdown-item" href="{{route('ultrasonography.reports')}}">Ultrasonography<li>
         <a  class ="dropdown-item" href="{{route('ct_scan.reports')}}">CT-scan</a></li>
         <li><a  class ="dropdown-item" href="{{route('ecg.reports')}}">ECG</a></li></a></li>
+
       </ul>
     </li>
+    <div class="container-fluid">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search patient" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
         @endif
         @if(session('type') == "10")
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <a class="nav-link" href="{{route('profile.doctor.index')}}">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{route('treatment.verify') }}">Treatment</a>
+          <a class="nav-link" href="{{route('treatment.verify')}}">Patients</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Reports</a>
         </li>
         <div class="container-fluid">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search patient" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <form class="d-flex" method="post">
+            @csrf
+            <input class="form-control me-2" type="text" name="p_id" placeholder="Search patient" aria-label="Search">
+            <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
         @endif
@@ -65,17 +73,12 @@
 
 
       </ul>
-      <div class="container-fluid">
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search patient" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
 
-    <ul class="navbar-nav">
-     <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('logout') }}">Logout</a>
+    <ul class="navbar-nav margin_logout">
+     <li class="nav-item ">
+          <a class="nav-link active margin_logut" aria-current="page" href="{{ route('logout') }}">Logout</a>
         </li>
+      </ul>
     </div>
   </ul>
   </div>

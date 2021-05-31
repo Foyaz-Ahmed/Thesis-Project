@@ -21,6 +21,16 @@ class HemoglobinController extends Controller
 
     }
 
+    public function hg_one(Request $requ){
+
+        $id = $requ->session()->get('p_id');
+
+        $hg = Hemoglobin::all()->where('id',$id);
+
+        return view('backened.reports.hemoglobin')->with('hg',$hg);
+
+    }
+
     public function all(){
 
     	$hg_all = Hemoglobin::all();

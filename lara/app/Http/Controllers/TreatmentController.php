@@ -21,6 +21,14 @@ class TreatmentController extends Controller
         
         }
 
+        public function index_two(Request $requ,$id){
+         
+        $treatment = Treatment::all()->where('p_id', $id);
+
+        return view('backened.treatment.treatment')->with('treat', $treatment);
+        
+        }
+
 
         public function verify(){
 
@@ -28,15 +36,54 @@ class TreatmentController extends Controller
         	return view('backened.treatment.verify');
         }
 
-        public function verify_patient(Request $requ){
+   //      public function verify_patient(Request $requ){
 
-        	$id = $requ->id;
+   //      	$id = $requ->id;
+   //          $treatment = Treatment::all()->where('p_id', $id);
+
+   //          $p_user = "";
+
+   //          if($id!=null){
+			// // $d_user = Doctor::find($id)->all();
+
+   //          if(count($treatment) > 0)
+   //          {
+   //               $requ->session()->put('p_id', $requ->id);
+
+   //               $id = session()->get('p_id');
+
+   //               return view('backened.treatment.find_all')->with('id',$id);
+
+   //              // return view('backened.treatment.treatment')->with('treat', $treatment);
+   //          }
+   //          else{
+
+   //               session()->flash('success','Wrong Id given!!');
+   //               return redirect()->route('treatment.verify');
+   //          }
+
+   //          }
+
+   //          elseif($id==""){
+   //              session()->flash('success','Null Submission!!');
+   //              return redirect()->route('treatment.verify');
+   //          }			
+
+   //          else{
+   //              echo "wrong User";
+   //          }  
+      
+   //      }
+
+         public function verify_patient(Request $requ){
+
+            $id = $requ->id;
             $treatment = Treatment::all()->where('p_id', $id);
 
             $p_user = "";
 
             if($id!=null){
-			// $d_user = Doctor::find($id)->all();
+            // $d_user = Doctor::find($id)->all();
 
             if(count($treatment) > 0)
             {
@@ -44,25 +91,29 @@ class TreatmentController extends Controller
 
                  $id = session()->get('p_id');
 
-                return view('backened.treatment.treatment')->with('treat', $treatment);
-                // return view('backened.treatment.treatment_create')->with('p_user',$p_user);
+                  return view('backened.treatment.find_all')->with('id',$id);
+                   // return view('backened.treatment.treatment')->with('treat', $treatment);
+
             }
             else{
-                echo "Wrong Id";
+
+                 session()->flash('success','Wrong Id given!!');
+                 return redirect()->route('treatment.verify');
             }
 
             }
 
             elseif($id==""){
-
-                echo "Null Submission";
-            }			
+                session()->flash('success','Null Submission!!');
+                return redirect()->route('treatment.verify');
+            }           
 
             else{
                 echo "wrong User";
             }  
       
         }
+
 
         public function create(Request $requ){
 

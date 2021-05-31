@@ -18,8 +18,27 @@ class CTScanReportController extends Controller
 
     }
 
+    public function show(Request $requ){
+
+        $id = $requ->session()->get('p_id');
+        $ct_scan = CTscanReport::all()->where('id',$id);
+
+        
+        return view('backened.reports.ct_scan')->with('ct_scan',$ct_scan);
+
+
+    }
+
     public function image(Request $requ, $date){
         $id = $requ->session()->get('name');
+        $view = CTscanReport::all()->where('id',$id)
+                                ->where('date',$date);
+        // print_r($img);
+        return view('backened.reports.ct_scan_image')->with('view',$view);
+    }
+
+    public function image_show(Request $requ, $date){
+        $id = $requ->session()->get('p_id');
         $view = CTscanReport::all()->where('id',$id)
                                 ->where('date',$date);
         // print_r($img);

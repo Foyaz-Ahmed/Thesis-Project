@@ -16,4 +16,14 @@ class BloodSugarController extends Controller
         return view('backened.reports.blood_sugar')->with('blood_sugar',$blood_sugar);
 
     }
+
+    public function show(Request $requ){
+
+        $id = $requ->session()->get('p_id');
+
+        $blood_sugar = BloodSugar::all()->where('id',$id);
+
+        return view('backened.reports.blood_sugar')->with('blood_sugar',$blood_sugar);
+
+    }
 }
