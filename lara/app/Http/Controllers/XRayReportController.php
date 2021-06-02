@@ -18,6 +18,14 @@ class XRayReportController extends Controller
 
     }
 
+
+    public function all(){
+
+        $xray_all = XrayReport::all();
+
+        return view('backened.reports.xray_all_reports')->with('all', $xray_all);
+    }
+
     public function show(Request $requ){
 
         $id = $requ->session()->get('p_id');

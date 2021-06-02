@@ -17,6 +17,13 @@ class UltrasonographyController extends Controller
 
     }
 
+    public function all(){
+
+        $ultra_all = Ultrasonography::all();
+
+        return view('backened.reports.ultrasonography_reports_all')->with('all', $ultra_all);
+    }
+
     public function show(Request $requ){
 
         $id = $requ->session()->get('p_id');

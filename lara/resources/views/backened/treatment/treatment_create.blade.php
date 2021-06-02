@@ -9,6 +9,7 @@
 
   <form method ="post" action="{{route('treatment.store')}}">
   	@csrf
+  	@include('backened.partials.message')
 	<table class="table table-responsive">
 		<tr>
 			<td>Doctors Name:</td>

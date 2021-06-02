@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Creatinine;
+use App\Http\Requests\ReportRequest;
+use App\Http\Requests\UpdateRequest;
+use Validator;
+use Illuminate\Support\Facades\DB;
 
 class CreatinineController extends Controller
 {
@@ -17,6 +21,13 @@ class CreatinineController extends Controller
 
     }
 
+    public function all(){
+
+        $creatinine_all = Creatinine::all();
+
+        return view('backened.reports.creatinine_all_reports')->with('all', $creatinine_all);
+    }
+
     public function show(Request $requ){
 
         $id = $requ->session()->get('p_id');
@@ -25,6 +36,32 @@ class CreatinineController extends Controller
 
         return view('backened.reports.urine')->with('urine',$urine);
 
+    }
+
+    public function edit(Request $requ,  $id, $date){
+
+        $crt = Creatinine::find($id)
+                            ->where('date',$date)
+                            ->get();
+
+        return view('backened.reports.creatinine_reports_update')->with('crt',$crt);
+    }
+
+    public function update(UpdateRequest $requ, $id, $date){
+
+        Creatinine::where('id', $id)->where('date',$date)->update(['result_value' => $requ->result_value]);
+        Creatinine::where('id', $id)->where('date',$date)->update(['date' => $requ->date]);
+        return redirect()->route('creatinine.reports.all');
+        
+    }
+
+    public function delete($id, $date)
+    {
+        Creatinine::where('id', $id)->where('date',$date)->delete();
+       
+        return redirect()->route('creatinine.reports.all');
+        
+        
     }
 
     

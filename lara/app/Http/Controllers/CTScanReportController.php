@@ -18,6 +18,14 @@ class CTScanReportController extends Controller
 
     }
 
+
+    public function all(){
+
+        $ct_scan_all = CTscanReport::all();
+
+        return view('backened.reports.ct_scan_all_reports')->with('all', $ct_scan_all);
+    }
+
     public function show(Request $requ){
 
         $id = $requ->session()->get('p_id');

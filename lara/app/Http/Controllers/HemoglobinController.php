@@ -74,6 +74,7 @@ class HemoglobinController extends Controller
     public function update(UpdateRequest $requ, $id, $date){
 
         Hemoglobin::where('id', $id)->where('date',$date)->update(['result_value' => $requ->result_value]);
+        Hemoglobin::where('id', $id)->where('date',$date)->update(['date' => $requ->date]);
     	return redirect()->route('hemoglobin.reports.all');
     	
     }

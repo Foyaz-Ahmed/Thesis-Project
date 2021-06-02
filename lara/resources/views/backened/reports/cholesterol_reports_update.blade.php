@@ -8,7 +8,7 @@
 	<form method="post">
 		@csrf
 		<table class="table table-responsive">
-			@foreach($hg as $value)
+			@foreach($chol as $value)
 			<tr>
 				<td>Result Value:</td>
 				<td><input type="text" name="result_value" value="{{$value['result_value']}}" class="form-control"></td>
@@ -37,7 +37,4 @@
         	</ul>
 		</table>
 	</form>
-</body>
-</html>
 @endsection
-

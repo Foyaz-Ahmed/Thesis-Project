@@ -1,14 +1,14 @@
 @extends('backened.layouts.main')
 
 @section('title')
-    Urine Test Update
+    Creatinine Test Update
 @endsection
 
 @section('content')
 	<form method="post">
 		@csrf
 		<table class="table table-responsive">
-			@foreach($hg as $value)
+			@foreach($crt as $value)
 			<tr>
 				<td>Result Value:</td>
 				<td><input type="text" name="result_value" value="{{$value['result_value']}}" class="form-control"></td>
@@ -37,7 +37,4 @@
         	</ul>
 		</table>
 	</form>
-</body>
-</html>
 @endsection
-

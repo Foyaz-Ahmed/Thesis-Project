@@ -5,11 +5,10 @@
 @endsection
 
 @section('content')
-<div class="main-content card-body>
-  <section class="section">
-<div class="card-body">
-<div class="table-responsive table-invoice">
-  <table class="table table-hover table-striped">
+<div class="table_margin_profile">
+    <br>
+    <h3 class="profileh" align="center">Doctor Profile</h3>
+    <table class="table table-striped">
         <tr>
             <td>Profile Image:</td>
             <td><img src="{{ asset('images/profile_upload/doctor') }}/{{ $profiledata['d_image'] }}" alt="" width="100px"

@@ -5,11 +5,9 @@
 @endsection
 
 @section('content')
-<div class="main-content card-body>
-  <section class="section">
-<div class="card-body">
-<div class="table-responsive table-invoice">
-  <table class="table table-hover table-striped">
+<div class="table_margin_profile">
+    <h3  class="profileh" align="center">Patient Profile</h3>
+    <table class="table table-striped">
         <tr>
             <td>Profile Image:</td>
             <td><img src="{{ asset('images/profile_upload') }}/{{ $profiledata['p_image'] }}" alt="" width="100px"
@@ -64,7 +62,5 @@
             <td>{{ $profiledata['dob']  }}</td>
         </tr>
     </table>
-
-</div>
 </div>
 @endsection

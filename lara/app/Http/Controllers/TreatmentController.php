@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Patient;
 use App\Treatment;
 use App\Doctor;
+use App\Http\Requests\TreatmentRequest;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use VAlidator;
 
 class TreatmentController extends Controller
 {
@@ -36,45 +38,6 @@ class TreatmentController extends Controller
         	return view('backened.treatment.verify');
         }
 
-   //      public function verify_patient(Request $requ){
-
-   //      	$id = $requ->id;
-   //          $treatment = Treatment::all()->where('p_id', $id);
-
-   //          $p_user = "";
-
-   //          if($id!=null){
-			// // $d_user = Doctor::find($id)->all();
-
-   //          if(count($treatment) > 0)
-   //          {
-   //               $requ->session()->put('p_id', $requ->id);
-
-   //               $id = session()->get('p_id');
-
-   //               return view('backened.treatment.find_all')->with('id',$id);
-
-   //              // return view('backened.treatment.treatment')->with('treat', $treatment);
-   //          }
-   //          else{
-
-   //               session()->flash('success','Wrong Id given!!');
-   //               return redirect()->route('treatment.verify');
-   //          }
-
-   //          }
-
-   //          elseif($id==""){
-   //              session()->flash('success','Null Submission!!');
-   //              return redirect()->route('treatment.verify');
-   //          }			
-
-   //          else{
-   //              echo "wrong User";
-   //          }  
-      
-   //      }
-
          public function verify_patient(Request $requ){
 
             $id = $requ->id;
@@ -83,7 +46,6 @@ class TreatmentController extends Controller
             $p_user = "";
 
             if($id!=null){
-            // $d_user = Doctor::find($id)->all();
 
             if(count($treatment) > 0)
             {
@@ -92,7 +54,6 @@ class TreatmentController extends Controller
                  $id = session()->get('p_id');
 
                   return view('backened.treatment.find_all')->with('id',$id);
-                   // return view('backened.treatment.treatment')->with('treat', $treatment);
 
             }
             else{
@@ -127,7 +88,7 @@ class TreatmentController extends Controller
             return view('backened.treatment.treatment_create')->with('d_user', $d_user);
         }
 
-        public function store(Request $requ){
+        public function store(TreatmentRequest $requ){
 
         $id = session()->get('p_id');
         
@@ -141,9 +102,7 @@ class TreatmentController extends Controller
         $treatment->remarks = $requ->remarks;
         $treatment->date = $requ->date;
         $treatment->save();
-        // view()->share('treat',$treatment);
-        // $pdf = PDF::loadView('backened/treatment/treatmentTestpdf', $treatment);
-        // $pdf->download('prescription.pdf');
+  
         return redirect()->route('treatment.verify');    
         
 

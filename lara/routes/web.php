@@ -114,7 +114,7 @@ Route::get('/ecg/images/show/{date}','ECGReportController@image_show')->name('cl
 //Add Blood Group reports
 
 
-//Hg All Routes
+//Hg create, delete All Routes
 
 Route::get('/reports/create','ReportController@create_reports')->name('reports.create');
 
@@ -125,23 +125,70 @@ Route::get('/hemoglobin/reports/edit/{id}/{date}','HemoglobinController@edit')->
 Route::post('/hemoglobin/reports/edit/{id}/{date}','HemoglobinController@update')->name('hemoglobin.reports.edit');
 Route::get('/hemoglobin/reports/delete/{id}/{date}','HemoglobinController@delete')->name('hemoglobin.reports.delete');
 
-//Creatinine routes
+
+//Creatinine create/update/delete
 
 
 Route::get('/creatinine/reports/create','CreatinineController@creatinine_create')->name('creatinine.reports.create');
+Route::get('/creatinine/reports/all','CreatinineController@all')->name('creatinine.reports.all');
+Route::get('/creatinine/reports/edit/{id}/{date}','CreatinineController@edit')->name('creatinine.reports.edit');
+Route::post('/creatinine/reports/edit/{id}/{date}','CreatinineController@update')->name('creatinine.reports.edit');
+Route::get('/creatinine/reports/delete/{id}/{date}','CreatinineController@delete')->name('creatinine.reports.delete');
+
+
+
+
+//cholesterol create/update/delete
+
 
 Route::get('/cholesterol/reports/create','CholesterolController@cholesterol_create')->name('cholesterol.reports.create');
+Route::get('/cholesterol/reports/all','CholesterolController@all')->name('cholesterol.reports.all');
+Route::get('/cholesterol/reports/edit/{id}/{date}','CholesterolController@edit')->name('cholesterol.reports.edit');
+Route::post('/cholesterol/reports/edit/{id}/{date}','CholesterolController@update')->name('cholesterol.reports.edit');
+Route::get('/cholesterol/reports/delete/{id}/{date}','CholesterolController@delete')->name('cholesterol.reports.delete');
+
+//Plateletes create/update/delete
+
 Route::get('/platelets/reports/create','PlateletsController@platelets_create')->name('platelets.reports.create');
+Route::get('/platelets/reports/all','PlateletsController@all')->name('platelets.reports.all');
+Route::get('/platelets/reports/edit/{id}/{date}','PlateletsController@edit')->name('platelets.reports.edit');
+Route::post('/platelets/reports/edit/{id}/{date}','PlateletsController@update')->name('platelets.reports.edit');
+Route::get('/platelets/reports/delete/{id}/{date}','PlateletsController@delete')->name('platelets.reports.delete');
+
+
+//Blood Sugar create/update/delete
+
 Route::get('/bloodsugar/reports/create','BloodSugarController@blood_sugar_create')->name('bloodsugar.reports.create');
+Route::get('/bloodsugar/reports/all','BloodSugarController@all')->name('bloodsugar.reports.all');
+Route::get('/bloodsugar/reports/edit/{id}/{date}','BloodSugarController@edit')->name('bloodsugar.reports.edit');
+Route::post('/bloodsugar/reports/edit/{id}/{date}','BloodSugarController@update')->name('bloodsugar.reports.edit');
+Route::get('/bloodsugar/reports/delete/{id}/{date}','BloodSugarController@delete')->name('bloodsugar.reports.delete');
+
+
+//urine reports create/update/delete
+
+
 Route::get('/urine/reports/create','UrineTestController@urine_create')->name('urine.reports.create');
+Route::get('/urine/reports/all','UrineTestController@all')->name('urine.reports.all');
+Route::get('/urine/reports/edit/{id}/{date}','UrineTestController@edit')->name('urine.reports.edit');
+Route::post('/urine/reports/edit/{id}/{date}','UrineTestController@update')->name('urine.reports.edit');
+Route::get('/urine/reports/delete/{id}/{date}','UrineTestController@delete')->name('urine.reports.delete');
 
 
-//Add Other Reports
+//Add Other Reports and delete
 
 Route::get('/xray/reports/create','XRayReportController@xray_create')->name('xray.reports.create');
+Route::get('/xray/reports/all','XRayReportController@all')->name('xray.reports.all');
+
 Route::get('/ultrasonography/reports/create','UltrasonographyController@ultra_create')->name('ultrasonography.reports.create');
+Route::get('/ultrasonography/reports/all','UltrasonographyController@all')->name('ultrasonography.reports.all');
+
+
 Route::get('/ct-scan/reports/create','CTScanReportController@ct_scan_create')->name('ct_scan.reports.create');
+Route::get('/ct-scan/reports/all','CTScanReportController@all')->name('ct_scan.reports.all');
+
 Route::get('/ecg/reports/create','ECGReportController@ecg_create')->name('ecg.reports.create');
+Route::get('/ecg/reports/all','ECGReportController@all')->name('ecg.reports.all');
 
 
 //pdf generates

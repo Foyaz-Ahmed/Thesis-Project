@@ -111,3 +111,25 @@
 .success_message{
   margin-right:200px;
 }
+.footer_margin{
+
+  margin-top:200px;
+  margin-bottom:0px;
+}
+.table_margin_hg{
+
+  margin-left:200px;
+  margin-right:200px;
+  margin-top:20px;
+}
+
+.table_margin_profile{
+
+  margin-left:400px;
+  margin-right: 600px;
+  width:600px;
+}
+
+.profileh{
+  background:#ff0c0021;
+}

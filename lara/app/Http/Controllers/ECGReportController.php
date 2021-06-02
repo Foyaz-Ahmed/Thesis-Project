@@ -17,6 +17,13 @@ class ECGReportController extends Controller
 
     }
 
+    public function all(){
+
+        $ecg_all = ECGReports::all();
+
+        return view('backened.reports.ecg_reports_all')->with('all',$ecg_all);
+    }
+
     public function show(Request $requ){
 
         $id = $requ->session()->get('p_id');

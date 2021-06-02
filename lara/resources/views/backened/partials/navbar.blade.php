@@ -33,7 +33,7 @@
 
       </ul>
     </li>
-    <div class="container-fluid">
+      <div class="container-fluid">
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search patient" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -66,9 +66,32 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('hemoglobin.reports.create') }}">Add Reports</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('hemoglobin.reports.all') }}">Reports</a>
+         <li class="nav-item dropdown" id="myDropdown">
+      <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Reports</a>
+      <ul class="dropdown-menu">
+        <li> <a class="dropdown-item" href="#"> Blood Reports &raquo; </a>
+          <ul class="submenu dropdown-menu">
+            <li><a class ="dropdown-item" href="{{ route('hemoglobin.reports.all') }}">Hemoglobin(Hg)</a></li>
+            <li><a class ="dropdown-item"  href="{{route('cholesterol.reports.all')}}">Cholesterol</a></li>
+            <li><a class ="dropdown-item"  href="{{route('platelets.reports.all')}}">Platelets</a></li>
+            <li><a class ="dropdown-item"  href="{{route('bloodsugar.reports.all')}}">Blood Sugar</a></li>
+          </ul>
         </li>
+         <li><a class ="dropdown-item"  href="{{route('urine.reports.all')}}">Urine Test</a></li>
+        <li><a class ="dropdown-item"  href="{{route('creatinine.reports.all')}}">Creatinine</a></li>
+        <li><a  class ="dropdown-item" href="{{route('xray.reports.all')}}">X-ray</a></li>
+        <li><a  class ="dropdown-item" href="{{route('ultrasonography.reports.all')}}">Ultrasonography<li>
+        <a  class ="dropdown-item" href="{{route('ct_scan.reports.all')}}">CT-scan</a></li>
+        <li><a  class ="dropdown-item" href="{{route('ecg.reports.all')}}">ECG</a></li></a></li>
+
+      </ul>
+    </li>
+        <div class="container-fluid">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search patient" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
         @endif
 
 

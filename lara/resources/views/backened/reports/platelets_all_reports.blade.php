@@ -1,11 +1,11 @@
 @extends('backened.layouts.main')
 
 @section('title')
-    Hg all reports
+    Platelets reports 
 @endsection
 
 @section('content')
-    <h1 align="center">Previous Hg Test</h1>
+    <h1 align="center">Previous Platelets Test</h1>
     <div class="table_margin_hg">
     <table class="table table-striped ">
         <tr>
@@ -22,8 +22,9 @@
             <td>{{$value['reference_range']}}</td>
             <td>{{$value['date']}}</td>
             <td>
-                <a class="btn btn-primary "href="{{ route('hemoglobin.reports.edit',[$value['id'], $value['date']]) }}">Update</a>
-                <a class="btn btn-danger href="{{ route('hemoglobin.reports.delete', [$value['id'],$value['date'] ])}}">Delete</a>
+                <a class="btn btn-primary "href="{{ route('platelets.reports.edit',[$value['id'], $value['date']]) }}">Update</a>
+                <a class="btn btn-danger "href="{{ route('platelets.reports.delete',[$value['id'], $value['date']]) }}">Delete</a>
+                
             </td>
         </tr>
         @endforeach

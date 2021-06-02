@@ -8,7 +8,7 @@
 <div class="wrapper">
  	@include('backened.partials.navbar')
   	@yield('content')		
-  	<!-- @include('backened.partials.footer')  -->
+  	@include('backened.partials.footer') 
 	@include('backened.partials.scripts')
 
 </body>
