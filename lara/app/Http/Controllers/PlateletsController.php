@@ -38,6 +38,27 @@ class PlateletsController extends Controller
 
     }
 
+
+    public function platelets_create(){
+
+   
+         return view('backened.reports.platelets_create');
+    }
+
+    public function platelets_store(ReportRequest $requ){
+
+        $plt = new Platelets();
+
+        $plt->id = $requ->id;
+        $plt->result_value = $requ->result_value;
+        $plt->reference_range = $requ->reference_value;
+        $plt->date = $requ->date;
+
+        $plt->save();
+        return redirect()->route('platelets.reports.all');
+        
+    }
+
     public function edit(Request $requ,  $id, $date){
 
         $platelets = Platelets::find($id)

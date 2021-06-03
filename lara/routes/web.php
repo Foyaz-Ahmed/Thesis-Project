@@ -130,6 +130,7 @@ Route::get('/hemoglobin/reports/delete/{id}/{date}','HemoglobinController@delete
 
 
 Route::get('/creatinine/reports/create','CreatinineController@creatinine_create')->name('creatinine.reports.create');
+Route::post('/creatinine/reports/create','CreatinineController@creatinine_store')->name('creatinine.reports.create');
 Route::get('/creatinine/reports/all','CreatinineController@all')->name('creatinine.reports.all');
 Route::get('/creatinine/reports/edit/{id}/{date}','CreatinineController@edit')->name('creatinine.reports.edit');
 Route::post('/creatinine/reports/edit/{id}/{date}','CreatinineController@update')->name('creatinine.reports.edit');
@@ -142,6 +143,7 @@ Route::get('/creatinine/reports/delete/{id}/{date}','CreatinineController@delete
 
 
 Route::get('/cholesterol/reports/create','CholesterolController@cholesterol_create')->name('cholesterol.reports.create');
+Route::post('/cholesterol/reports/create','CholesterolController@cholesterol_store')->name('cholesterol.reports.create');
 Route::get('/cholesterol/reports/all','CholesterolController@all')->name('cholesterol.reports.all');
 Route::get('/cholesterol/reports/edit/{id}/{date}','CholesterolController@edit')->name('cholesterol.reports.edit');
 Route::post('/cholesterol/reports/edit/{id}/{date}','CholesterolController@update')->name('cholesterol.reports.edit');
@@ -150,6 +152,7 @@ Route::get('/cholesterol/reports/delete/{id}/{date}','CholesterolController@dele
 //Plateletes create/update/delete
 
 Route::get('/platelets/reports/create','PlateletsController@platelets_create')->name('platelets.reports.create');
+Route::post('/platelets/reports/create','PlateletsController@platelets_store')->name('platelets.reports.create');
 Route::get('/platelets/reports/all','PlateletsController@all')->name('platelets.reports.all');
 Route::get('/platelets/reports/edit/{id}/{date}','PlateletsController@edit')->name('platelets.reports.edit');
 Route::post('/platelets/reports/edit/{id}/{date}','PlateletsController@update')->name('platelets.reports.edit');
@@ -157,8 +160,8 @@ Route::get('/platelets/reports/delete/{id}/{date}','PlateletsController@delete')
 
 
 //Blood Sugar create/update/delete
-
-Route::get('/bloodsugar/reports/create','BloodSugarController@blood_sugar_create')->name('bloodsugar.reports.create');
+Route::get('/bloodsugar/reports/create','BloodSugarController@bs_create')->name('bloodsugar.reports.create');
+Route::post('/bloodsugar/reports/create','BloodSugarController@bs_store')->name('bloodsugar.reports.create');
 Route::get('/bloodsugar/reports/all','BloodSugarController@all')->name('bloodsugar.reports.all');
 Route::get('/bloodsugar/reports/edit/{id}/{date}','BloodSugarController@edit')->name('bloodsugar.reports.edit');
 Route::post('/bloodsugar/reports/edit/{id}/{date}','BloodSugarController@update')->name('bloodsugar.reports.edit');
@@ -169,6 +172,7 @@ Route::get('/bloodsugar/reports/delete/{id}/{date}','BloodSugarController@delete
 
 
 Route::get('/urine/reports/create','UrineTestController@urine_create')->name('urine.reports.create');
+Route::post('/urine/reports/create','UrineTestController@urine_store')->name('urine.reports.create');
 Route::get('/urine/reports/all','UrineTestController@all')->name('urine.reports.all');
 Route::get('/urine/reports/edit/{id}/{date}','UrineTestController@edit')->name('urine.reports.edit');
 Route::post('/urine/reports/edit/{id}/{date}','UrineTestController@update')->name('urine.reports.edit');

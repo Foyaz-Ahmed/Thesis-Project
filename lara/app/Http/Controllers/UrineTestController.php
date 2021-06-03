@@ -38,6 +38,27 @@ class UrineTestController extends Controller
 
     }
 
+
+    public function urine_create(){
+
+   
+         return view('backened.reports.urine_create');
+    }
+
+    public function urine_store(ReportRequest $requ){
+
+        $ur = new UrineTest();
+
+        $ur->id = $requ->id;
+        $ur->result_value = $requ->result_value;
+        $ur->reference_range = $requ->reference_value;
+        $ur->date = $requ->date;
+
+        $ur->save();
+        return redirect()->route('urine.reports.all');
+        
+    }
+
     public function edit(Request $requ,  $id, $date){
 
         $urine = UrineTest::find($id)

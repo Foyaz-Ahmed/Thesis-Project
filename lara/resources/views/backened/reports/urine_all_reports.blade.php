@@ -7,6 +7,10 @@
 @section('content')
     <h1 align="center">Previous Urine Test</h1>
     <div class="table_margin_hg">
+    <center>
+        <a class="btn btn-success "href="{{route('urine.reports.create')}}">Insert New</a>
+    </center>
+    <br><br>
     <table class="table table-striped ">
         <tr>
             <th>Patient Id</th>

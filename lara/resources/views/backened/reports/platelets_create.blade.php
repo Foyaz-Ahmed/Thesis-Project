@@ -1,7 +1,7 @@
 @extends('backened.layouts.main')
 
 @section('title')
-    Hg Report Insert
+    Platelets Report Insert
 @endsection
 
 @section('content')
@@ -18,14 +18,13 @@
 			</tr>
 			<tr>
 				<td>Reference Value:</td>
-				<td><input class="form-control" type="text" name="reference_value" value="1.5-1.7"></td>
+				<td><input class="form-control" type="text" name="reference_value" value="8-8.8"></td>
 			</tr>
 			<tr>
 				<td>Date:</td>
 				<td><input class="form-control" type="date" name="date"></td>
 			</tr>
 			<tr>
-				<!-- <td><input type="submit" name="submit" value="Save"></td> -->
 				<td></td>
 				<td><button type="type" class="btn btn-primary btn-lg">Insert</button></td
 			</tr>

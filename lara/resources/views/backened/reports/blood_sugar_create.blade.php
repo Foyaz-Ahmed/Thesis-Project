@@ -1,7 +1,7 @@
 @extends('backened.layouts.main')
 
 @section('title')
-    Hg Report Insert
+    Blood Sugar Report Insert
 @endsection
 
 @section('content')
@@ -25,7 +25,6 @@
 				<td><input class="form-control" type="date" name="date"></td>
 			</tr>
 			<tr>
-				<!-- <td><input type="submit" name="submit" value="Save"></td> -->
 				<td></td>
 				<td><button type="type" class="btn btn-primary btn-lg">Insert</button></td
 			</tr>

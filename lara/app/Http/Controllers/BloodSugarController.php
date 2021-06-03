@@ -38,6 +38,26 @@ class BloodSugarController extends Controller
 
     }
 
+     public function bs_create(){
+
+   
+         return view('backened.reports.blood_sugar_create');
+    }
+
+    public function bs_store(ReportRequest $requ){
+
+        $bs = new BloodSugar();
+
+        $bs->id = $requ->id;
+        $bs->result_value = $requ->result_value;
+        $bs->reference_range = $requ->reference_value;
+        $bs->date = $requ->date;
+
+        $bs->save();
+        return redirect()->route('bloodsugar.reports.all');
+        
+    }
+
 
     public function edit(Request $requ,  $id, $date){
 

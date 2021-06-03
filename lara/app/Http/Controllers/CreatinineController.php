@@ -38,6 +38,26 @@ class CreatinineController extends Controller
 
     }
 
+    public function creatinine_create(){
+
+   
+         return view('backened.reports.creatinine_create');
+    }
+
+    public function creatinine_store(ReportRequest $requ){
+
+        $crt = new Creatinine();
+
+        $crt->id = $requ->id;
+        $crt->result_value = $requ->result_value;
+        $crt->reference_range = $requ->reference_value;
+        $crt->date = $requ->date;
+
+        $crt->save();
+        return redirect()->route('creatinine.reports.all');
+        
+    }
+
     public function edit(Request $requ,  $id, $date){
 
         $crt = Creatinine::find($id)

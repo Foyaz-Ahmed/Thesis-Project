@@ -41,6 +41,27 @@ class CholesterolController extends Controller
     }
 
 
+    public function cholesterol_create(){
+
+   
+         return view('backened.reports.cholesterol_create');
+    }
+
+    public function cholesterol_store(ReportRequest $requ){
+
+        $cl = new Cholesterol();
+
+        $cl->id = $requ->id;
+        $cl->result_value = $requ->result_value;
+        $cl->reference_range = $requ->reference_value;
+        $cl->date = $requ->date;
+
+        $cl->save();
+        return redirect()->route('cholesterol.reports.all');
+        
+    }
+
+
 
      public function edit(Request $requ,  $id, $date){
 
