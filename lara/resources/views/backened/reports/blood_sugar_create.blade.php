@@ -26,7 +26,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><button type="type" class="btn btn-primary btn-lg">Insert</button></td
+				<td><button type="type" class="btn btn-primary btn-lg">Insert</button></td>
 			</tr>
 			<ul>
 	            @foreach ($errors->all() as $error)

@@ -83,6 +83,7 @@ Route::get('/urine/reports/show','UrineTestController@show')->name('urine.report
 Route::get('/xray/reports','XRayReportController@index')->name('xray.reports');
 Route::get('/xray/reports/show','XRayReportController@show')->name('xray.reports.show');
 
+
 //ultrasonography
 
 Route::get('/ultrasonography/reports','UltrasonographyController@index')->name('ultrasonography.reports');
@@ -181,17 +182,28 @@ Route::get('/urine/reports/delete/{id}/{date}','UrineTestController@delete')->na
 
 //Add Other Reports and delete
 
+//xray create
+
 Route::get('/xray/reports/create','XRayReportController@xray_create')->name('xray.reports.create');
+Route::post('/xray/reports/create','XRayReportController@xray_store')->name('xray.reports.create');
 Route::get('/xray/reports/all','XRayReportController@all')->name('xray.reports.all');
 
+//ultra Create
+
 Route::get('/ultrasonography/reports/create','UltrasonographyController@ultra_create')->name('ultrasonography.reports.create');
+Route::post('/ultrasonography/reports/create','UltrasonographyController@ultra_store')->name('ultrasonography.reports.create');
 Route::get('/ultrasonography/reports/all','UltrasonographyController@all')->name('ultrasonography.reports.all');
 
+//ct_scan Create
 
 Route::get('/ct-scan/reports/create','CTScanReportController@ct_scan_create')->name('ct_scan.reports.create');
+Route::post('/ct-scan/reports/create','CTScanReportController@ct_scan_store')->name('ct_scan.reports.create');
 Route::get('/ct-scan/reports/all','CTScanReportController@all')->name('ct_scan.reports.all');
 
+//ecg create
+
 Route::get('/ecg/reports/create','ECGReportController@ecg_create')->name('ecg.reports.create');
+Route::post('/ecg/reports/create','ECGReportController@ecg_store')->name('ecg.reports.create');
 Route::get('/ecg/reports/all','ECGReportController@all')->name('ecg.reports.all');
 
 

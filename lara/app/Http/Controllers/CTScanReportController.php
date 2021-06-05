@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CTscanReport;
+use App\Http\Requests\ReportUploadRequest;
+use Validator;
 
 class CTScanReportController extends Controller
 {
@@ -36,6 +38,39 @@ class CTScanReportController extends Controller
 
 
     }
+
+    public function ct_scan_create(){
+
+        return view('backened.reports.ct_scan_create');
+    }
+
+    public function ct_scan_store(ReportUploadRequest $requ){
+
+
+         if($requ->hasFile('myfile'))    
+        {
+
+            $file = $requ->file('myfile');
+            $filename =  time().".".$file->getClientOriginalExtension();
+            $file->move('images/ct-scan', $filename);
+
+
+            $ct_scan = new CTscanReport();
+
+
+            $ct_scan->id = $requ->id;
+            $ct_scan->image = $filename;
+            $ct_scan->date = $requ->date;
+
+            $ct_scan->save();
+
+            session()->flash('success','New CT-scan report has been added successfully!!');
+            return redirect()->route('ct_scan.reports.all');
+
+         }
+       
+
+        }
 
     public function image(Request $requ, $date){
         $id = $requ->session()->get('name');

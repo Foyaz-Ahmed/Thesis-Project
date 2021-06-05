@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ultrasonography;
+use App\Http\Requests\ReportUploadRequest;
 
 class UltrasonographyController extends Controller
 {
@@ -33,6 +34,40 @@ class UltrasonographyController extends Controller
         return view('backened.reports.ultrasonography')->with('ultra',$ultra);
 
     }
+
+    public function ultra_create(){
+
+        return view('backened.reports.ultrasonography_create');
+    }
+
+    public function ultra_store(ReportUploadRequest $requ){
+
+
+         if($requ->hasFile('myfile'))    
+        {
+
+            $file = $requ->file('myfile');
+            $filename =  time().".".$file->getClientOriginalExtension();
+            $file->move('images/ultrasonography', $filename);
+
+
+            $ultra = new Ultrasonography();
+
+
+            $ultra->id = $requ->id;
+            $ultra->image = $filename;
+            $ultra->date = $requ->date;
+
+            $ultra->save();
+
+            session()->flash('success','New xray report has been added successfully!!');
+            return redirect()->route('ultrasonography.reports.all');
+
+         }
+       
+
+        }
+
 
     public function image(Request $requ, $date){
         $id = $requ->session()->get('name');

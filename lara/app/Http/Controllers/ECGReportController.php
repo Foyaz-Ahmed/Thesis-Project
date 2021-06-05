@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ECGReports;
+use App\Http\Requests\ReportUploadRequest;
+use Validator;
 
 class ECGReportController extends Controller
 {
@@ -33,6 +35,40 @@ class ECGReportController extends Controller
 
 
     }
+
+
+    public function ecg_create(){
+
+        return view('backened.reports.ecg_create');
+    }
+
+    public function ecg_store(ReportUploadRequest $requ){
+
+
+         if($requ->hasFile('myfile'))    
+        {
+
+            $file = $requ->file('myfile');
+            $filename =  time().".".$file->getClientOriginalExtension();
+            $file->move('images/ecg', $filename);
+
+
+            $ecg = new ECGReports();
+
+
+            $ecg->id = $requ->id;
+            $ecg->image = $filename;
+            $ecg->date = $requ->date;
+
+            $ecg->save();
+
+            session()->flash('success','New ECGreport has been added successfully!!');
+            return redirect()->route('ecg.reports.all');
+
+         }
+       
+
+        }
 
     public function image(Request $requ, $date){
         $id = $requ->session()->get('name');

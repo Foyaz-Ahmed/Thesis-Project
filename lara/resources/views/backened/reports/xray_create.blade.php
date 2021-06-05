@@ -1,24 +1,21 @@
 @extends('backened.layouts.main')
 
 @section('title')
-    Cholesterol Report Insert
+    Xray Report Insert
 @endsection
 
 @section('content')
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
 		@csrf
+		@include('backened.partials.message')
 		<table class="table table-responsive">
 			<tr>
 				<td>Patient Id:</td>
 				<td><input class="form-control" type="text" name="id"></td>
 			</tr>
 			<tr>
-				<td>Result Value:</td>
-				<td><input class="form-control" type="text" name="result_value"></td>
-			</tr>
-			<tr>
-				<td>Reference Value:</td>
-				<td><input class="form-control" type="text" name="reference_value" value="2.1-2.5"></td>
+				<td>Upload X-ray Image:</td>
+			    <td><input type="file" class="form-control" id="" name="myfile" ></td>
 			</tr>
 			<tr>
 				<td>Date:</td>
@@ -26,13 +23,13 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><button type="type" class="btn btn-primary btn-lg">Insert</button></td>
+				<td><button type="submit" name="submit" class="btn btn-primary btn-lg">Insert</button></td>
 			</tr>
-			<ul>
+			<!-- <ul>
 	            @foreach ($errors->all() as $error)
 	                <li>{{ $error }}</li>
 	            @endforeach
-        	</ul>
+        	</ul> -->
 		</table>
 	</form>
 @endsection

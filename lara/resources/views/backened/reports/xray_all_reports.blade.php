@@ -8,8 +8,9 @@
     <h1 align="center">All X-Ray Test</h1>
     <div class="table_margin_hg">
     <center>
-    <a class="btn btn-success "href="#">Inser New</a>
+    <a class="btn btn-success "href="{{route('xray.reports.create')}}">Inser New</a>
 	</center>
+    @include('backened.partials.message')
 	<br><br>
     <table class="table table-striped ">
         <tr>

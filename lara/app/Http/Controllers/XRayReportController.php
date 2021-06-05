@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\XrayReport;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ReportUploadRequest;
+use Validator;
 
 class XRayReportController extends Controller
 {
@@ -35,6 +37,42 @@ class XRayReportController extends Controller
         return view('backened.reports.xray')->with('xray',$xray);
 
     }
+
+
+    public function xray_create(){
+
+        return view('backened.reports.xray_create');
+    }
+
+    public function xray_store(ReportUploadRequest $requ){
+
+
+         if($requ->hasFile('myfile'))    
+        {
+            
+
+
+            $file = $requ->file('myfile');
+            $filename =  time().".".$file->getClientOriginalExtension();
+            $file->move('images/x-ray', $filename);
+
+
+            $xray = new XrayReport();
+
+
+            $xray->id = $requ->id;
+            $xray->image = $filename;
+            $xray->date = $requ->date;
+
+            $xray->save();
+
+            session()->flash('success','New xray report has been added successfully!!');
+            return redirect()->route('xray.reports.all');
+
+         }
+       
+
+        }
 
 
     public function image(Request $requ, $date){
