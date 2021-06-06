@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 use App\XrayReport;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File; 
 use App\Http\Requests\ReportUploadRequest;
 use Validator;
+use DataTables;
+
 
 class XRayReportController extends Controller
 {
@@ -50,15 +53,12 @@ class XRayReportController extends Controller
          if($requ->hasFile('myfile'))    
         {
             
-
-
             $file = $requ->file('myfile');
             $filename =  time().".".$file->getClientOriginalExtension();
             $file->move('images/x-ray', $filename);
 
 
             $xray = new XrayReport();
-
 
             $xray->id = $requ->id;
             $xray->image = $filename;
@@ -83,9 +83,35 @@ class XRayReportController extends Controller
     }
 
     public function image_show(Request $requ, $date){
+        
         $id = $requ->session()->get('p_id');
         $view = XrayReport::all()->where('id',$id)
                                 ->where('date',$date);
         return view('backened.reports.x_rayimage')->with('view',$view);
     }
+
+
+    public function destroy($id, $date){  
+      
+        $data = XrayReport::find($id)->where('date',$date)->first();
+        
+      if(file_exists('images/x-ray/' .$data->image) AND !empty($data->image)){ 
+            unlink('images/x-ray/'.$data->image);
+         } 
+            try{
+
+                XrayReport::where('id', $id)->where('date',$date)->delete();
+                $bug = 0;
+            }
+            catch(\Exception $e){
+                $bug = $e->errorInfo[1];
+            } 
+            if($bug==0){
+                session()->flash('success', "deleted successfull");
+                 return redirect()->route('xray.reports.all');
+            }else{
+                session()->flash('success', "error occured");
+                 return redirect()->route('xray.reports.all');
+            }
+        }
 }

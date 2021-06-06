@@ -27,7 +27,7 @@
 			</td>
             <td>{{$value['date']}}</td>
             <td>
-                <a class="btn btn-danger "href="#">Delete</a>
+                <a class="btn btn-danger "href="{{route('ecg.reports.delete', [$value['id'], $value['date']])}}">Delete</a>
             </td>
         </tr>
         @endforeach

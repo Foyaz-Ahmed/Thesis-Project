@@ -82,4 +82,29 @@ class UltrasonographyController extends Controller
                                 ->where('date',$date);
         return view('backened.reports.ultrasonography_image')->with('view',$view);
     }
+
+     public function destroy($id, $date){  
+      
+        $data = Ultrasonography::find($id)->where('date',$date)->first();
+      
+        
+      if(file_exists('images/ultrasonography/' .$data->image) AND !empty($data->image)){ 
+            unlink('images/ultrasonography/'.$data->image);
+         } 
+            try{
+
+                Ultrasonography::where('id', $id)->where('date',$date)->delete();
+                $bug = 0;
+            }
+            catch(\Exception $e){
+                $bug = $e->errorInfo[1];
+            } 
+            if($bug==0){
+                session()->flash('success', "deleted successfull");
+                 return redirect()->route('ultrasonography.reports.all');
+            }else{
+                session()->flash('success', "error occured");
+                 return redirect()->route('ultrasonography.reports.all');
+            }
+        }
 }

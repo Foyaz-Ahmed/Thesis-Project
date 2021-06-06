@@ -76,7 +76,7 @@ class CTScanReportController extends Controller
         $id = $requ->session()->get('name');
         $view = CTscanReport::all()->where('id',$id)
                                 ->where('date',$date);
-        // print_r($img);
+        
         return view('backened.reports.ct_scan_image')->with('view',$view);
     }
 
@@ -84,7 +84,32 @@ class CTScanReportController extends Controller
         $id = $requ->session()->get('p_id');
         $view = CTscanReport::all()->where('id',$id)
                                 ->where('date',$date);
-        // print_r($img);
+        
         return view('backened.reports.ct_scan_image')->with('view',$view);
     }
+
+    public function destroy($id, $date){  
+      
+        $data = CTscanReport::find($id)->where('date',$date)->first();
+      
+        
+      if(file_exists('images/ct-scan/' .$data->image) AND !empty($data->image)){ 
+            unlink('images/ct-scan/'.$data->image);
+         } 
+            try{
+
+                CTscanReport::where('id', $id)->where('date',$date)->delete();
+                $bug = 0;
+            }
+            catch(\Exception $e){
+                $bug = $e->errorInfo[1];
+            } 
+            if($bug==0){
+                session()->flash('success', "deleted successfull");
+                 return redirect()->route('ct_scan.reports.all');
+            }else{
+                session()->flash('success', "error occured");
+                 return redirect()->route('ct_scan.reports.all');
+            }
+        }
 }

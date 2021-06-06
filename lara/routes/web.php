@@ -127,6 +127,7 @@ Route::post('/hemoglobin/reports/edit/{id}/{date}','HemoglobinController@update'
 Route::get('/hemoglobin/reports/delete/{id}/{date}','HemoglobinController@delete')->name('hemoglobin.reports.delete');
 
 
+
 //Creatinine create/update/delete
 
 
@@ -182,29 +183,33 @@ Route::get('/urine/reports/delete/{id}/{date}','UrineTestController@delete')->na
 
 //Add Other Reports and delete
 
-//xray create
+//xray create and delete
 
 Route::get('/xray/reports/create','XRayReportController@xray_create')->name('xray.reports.create');
 Route::post('/xray/reports/create','XRayReportController@xray_store')->name('xray.reports.create');
 Route::get('/xray/reports/all','XRayReportController@all')->name('xray.reports.all');
+Route::get('/xray/reports/delete/{id}/{date}','XRayReportController@destroy')->name('xray.reports.delete');
 
-//ultra Create
+//ultra Create and delete
 
 Route::get('/ultrasonography/reports/create','UltrasonographyController@ultra_create')->name('ultrasonography.reports.create');
 Route::post('/ultrasonography/reports/create','UltrasonographyController@ultra_store')->name('ultrasonography.reports.create');
 Route::get('/ultrasonography/reports/all','UltrasonographyController@all')->name('ultrasonography.reports.all');
+Route::get('/ultrasonography/reports/delete/{id}/{date}','UltrasonographyController@destroy')->name('ultrasonography.reports.delete');
 
-//ct_scan Create
+//ct_scan Create and delete
 
 Route::get('/ct-scan/reports/create','CTScanReportController@ct_scan_create')->name('ct_scan.reports.create');
 Route::post('/ct-scan/reports/create','CTScanReportController@ct_scan_store')->name('ct_scan.reports.create');
 Route::get('/ct-scan/reports/all','CTScanReportController@all')->name('ct_scan.reports.all');
+Route::get('/ct-scan/reports/delete/{id}/{date}','CTScanReportController@destroy')->name('ct_scan.reports.delete');
 
-//ecg create
+//ecg create and delete
 
 Route::get('/ecg/reports/create','ECGReportController@ecg_create')->name('ecg.reports.create');
 Route::post('/ecg/reports/create','ECGReportController@ecg_store')->name('ecg.reports.create');
 Route::get('/ecg/reports/all','ECGReportController@all')->name('ecg.reports.all');
+Route::get('/ecg/reports/delete/{id}/{date}','ECGReportController@destroy')->name('ecg.reports.delete');
 
 
 //pdf generates
