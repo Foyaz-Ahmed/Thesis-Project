@@ -16,4 +16,14 @@ class AdminstrationController extends Controller
         return view('backened.profile.recorder_profile')->with('profiledata', $profiledata);
     
     }
+
+    public function admin_profile(Request $requ){
+
+     	$id = $requ->session()->get('name');
+        $profiledata = Adminstration::find($id);
+
+         
+        return view('backened.profile.admin_profile')->with('profiledata', $profiledata);
+    
+    }
 }

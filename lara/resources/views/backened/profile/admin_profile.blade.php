@@ -1,13 +1,13 @@
 @extends('backened.layouts.main')
 
 @section('title')
-    Profile of Health Recorder
+    Profile of Admin
 @endsection
 
 @section('content')
 <br><br>
 <div class="table_margin_profile">
-	<h3 class="profileh" align="center">Health Recorder Profile</h3>
+	<h3 class="profileh" align="center">Admin Profile</h3>
 	<table class="table table-striped">
         <tr>
             <td>Profile Image:</td>
@@ -66,4 +66,5 @@
         </tr>
     </table>
 </div>
+
 @endsection

@@ -37,10 +37,20 @@ Route::get('/home','HomeController@index')->name('index');
 Route::get('/dashboard/home','HomeController@dashboard')->name('dashboard.index');
 
 
-//profile
+//profile index
+
 Route::get('/profile','HomeController@profile')->name('profile.index');
 Route::get('/profile/recorder','AdminstrationController@recorder_profile')->name('profile.recorder.index');
 Route::get('/profile/doctor','DoctorController@profile')->name('profile.doctor.index');
+Route::get('/profile/doctor', 'AdminstrationController@admin_profile')->name('profile.admin.index');
+
+//patients
+
+Route::get('/patients','PatientController@index')->name('patient.index');
+Route::get('/patients/create','PatientController@create')->name('patient.create');
+Route::post('/patients/create','PatientController@store')->name('patient.create');
+Route::get('/patients/edit/{id}','PatientController@edit')->name('patient.edit');
+Route::post('/patients/edit/{id}','PatientController@update')->name('patient.edit');
 
 //treatments
 

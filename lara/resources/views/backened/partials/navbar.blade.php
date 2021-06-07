@@ -13,7 +13,7 @@
           <a class="nav-link" href="{{ route('dashboard.treatments') }}">Treatments</a>
         </li>
 
-        <li class="nav-item dropdown" id="myDropdown">
+      <li class="nav-item dropdown" id="myDropdown">
       <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Reports</a>
       <ul class="dropdown-menu">
         <li> <a class="dropdown-item" href="#"> Blood Reports &raquo; </a>
@@ -94,8 +94,29 @@
         </div>
         @endif
 
+       @if(session('type') == "02" )
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ route('profile.admin.index') }}">Adminstration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ route('profile.admin.index') }}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ route('profile.admin.index') }}">Doctors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ route('patient.index') }}">Patient</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ route('profile.admin.index') }}">Treatments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('treatment.verify')}}">Reports</a>
+        </li>
+        @endif
 
       </ul>
+
 
     <ul class="navbar-nav margin_logout">
      <li class="nav-item ">
