@@ -9,7 +9,7 @@
  	@include('backened.partials.navbar')
   	@yield('content')		
   	@include('backened.partials.footer') 
-	@include('backened.partials.scripts')
+	@include('backened.partials.scripts_two')
 
 </body>
 </html>

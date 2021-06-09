@@ -46,12 +46,21 @@ Route::get('/profile/doctor', 'AdminstrationController@admin_profile')->name('pr
 
 //patients
 
-Route::get('/patients','PatientController@index')->name('patient.index');
+Route::get('/patients/list','PatientController@index')->name('patient.index');
 Route::get('/patients/create','PatientController@create')->name('patient.create');
 Route::post('/patients/create','PatientController@store')->name('patient.create');
 Route::get('/patients/edit/{id}','PatientController@edit')->name('patient.edit');
 Route::post('/patients/edit/{id}','PatientController@update')->name('patient.edit');
 
+
+//doctors
+
+Route::get('/doctor/list','DoctorController@index')->name('doctor.index');
+Route::get('/doctors/create','DoctorController@create')->name('doctor.create');
+Route::post('/doctors/create','DoctorController@store')->name('doctor.create');
+Route::get('/doctors/edit/{id}','DoctorController@edit')->name('doctor.edit');
+Route::post('/doctors/edit/{id}','DoctorController@update')->name('doctor.edit');
+Route::post('/doctors/delete/{id}','DoctorController@destroy')->name('doctor.delete');
 //treatments
 
 Route::get('/treatments/','TreatmentController@index')->name('dashboard.treatments');

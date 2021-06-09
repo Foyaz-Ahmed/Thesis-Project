@@ -45,9 +45,8 @@ class PatientController extends Controller
     	$pt->e_contact = $requ->e_contact;
     	$pt->dob = $requ->dob;
 
-
     	$pt->save();
-  
+        session()->flash('success', "Doctor Added Successfully");
     	return redirect()->route('patient.index');
      }else{
      	session()->flash('success', "Image has must be uploaded");
@@ -79,7 +78,6 @@ class PatientController extends Controller
     	$pt->blood_group = $requ->blood_group;
     	$pt->gender = $requ->gender;
     	$pt->address = $requ->address;
-    	// $pt->p_image = $filename;
     	$pt->e_contact = $requ->e_contact;
     	$pt->dob = $requ->dob;
 

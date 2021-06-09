@@ -102,16 +102,13 @@
           <a class="nav-link active" href="{{ route('profile.admin.index') }}">Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{ route('profile.admin.index') }}">Doctors</a>
+          <a class="nav-link active" href="{{ route('doctor.index') }}">Doctors</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="{{ route('patient.index') }}">Patient</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="{{ route('profile.admin.index') }}">Treatments</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="{{route('treatment.verify')}}">Reports</a>
+          <a class="nav-link active" href="{{route('treatment.verify')}}">Treatments & Reports</a>
         </li>
         @endif
 
